@@ -1,0 +1,476 @@
+﻿body {
+    font-family: Garamond;
+    font-size: 12pt;
+    background-color: #FAF9F6; 
+}
+body div{
+    padding: 10px;
+}
+
+
+h1 {
+    margin-top: 2em; /*edit for tablet*/
+    font-family: Gill Sans, sans-serif;
+    font-size: 12vw;
+    color: #3d5349;
+    font-weight: 400;
+    text-align: center;
+}
+
+h2{
+    font-family:'Gill Sans', sans-serif;
+    font-size: 20pt;
+    text-align: center;
+}
+
+h3{
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 15pt;
+    padding-bottom: 10pt;
+}
+
+
+/*links*/
+a{
+    color: black;
+}
+
+a:visited{
+    color:black;
+}
+
+a:hover{
+    text-decoration:none;
+    text-transform: uppercase;
+}
+
+
+/*heading*/
+
+.skip a {
+    /*skip to main content styling*/
+    background: #FAF9F6;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+}
+
+.skip a:focus {
+   position: absolute;
+   top: 90px;
+}
+
+
+header.home-page {
+    /*F2F2EA*/
+    /*so that the header goes behind the image in the scrolling effect*/
+    z-index: 0;
+    background: url(../images/home_background_phone.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center; /* Parallax effect */
+    background-color: #FAF9F6;
+
+    background-size: cover; /* Parallax effect */
+    height: 98vh; /* Parallax effect */
+}
+
+
+header p {
+    font-family: 'Gill Sans', sans-serif ;
+    font-size: .5em;
+}
+
+img#logo_initial{
+   width: 6em;
+}
+
+nav{
+    text-align: left;
+ }
+
+
+
+ /*dropdown menu most from bootstrap*/
+
+a.nav-link.active {
+    background: #829e92;
+    text-decoration: underline;
+}
+
+.navbar {
+    /*color: #3d5349; #829e92 #FAF9F6*/
+    background-color: #FAF9F6;
+}
+
+
+/*text sections*/
+.body_text {
+    padding: 3em; /*edit for tablet set as 4em*/
+    line-height: 2em;
+    font-size: 14pt;
+}
+
+/*just for the home page*/
+#intro_bio {
+    background: rgba(61,83,73,.5);
+}
+
+#project_list {
+    font-size: 14pt;
+    line-height: 2em;
+    padding: 4em 4em 8em 4em;
+    background: #FAF9F6;
+
+}
+
+/*photo and title for just the home page*/
+#home_header {
+    margin-top: 0em;
+    width: 95%;
+    line-height: 1;
+    padding: 200px 0;
+    text-align: center;
+    font-size: 15vw;
+}
+
+
+/*for the about page*/
+#resumepdf{
+   width:100%;
+   height: 700px;
+}
+ 
+/*Animate the about-header id with keyframes.*/
+
+@keyframes about-header {
+    from {
+       margin-top: -1em;
+        
+    }
+
+    to {
+        margin-top: 1em;
+        
+    }
+}
+#about-header {
+    animation-name: about-header;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+/*Animate the headshot id with keyframes.*/
+
+@keyframes headshot {
+    from {
+        padding-right: 100%;
+    }
+
+    to {
+        padding-left: 3em;
+    }
+}
+
+#headshot {
+    animation-name: headshot;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+
+
+/*for the artwork page*/
+form{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 200px;
+}
+
+input[type=text] {
+    font-family: 'Garamond';
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #3d5349;
+    color: #FAF9F6;
+  }
+
+.artwork-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+div.flip_card{
+    width: 40%;
+    height: 40%;
+    margin: 10px;
+}
+
+.flip_card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+}
+
+.flipcard_inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flip_card:hover .flipcard_inner {
+    transform: rotateY(180deg);
+}
+.flip_card:focus .flipcard_inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flipcard_front, .flipcard_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.flipcard_front {
+   background-color: #FAF9F6;
+}
+
+.flipcard_back {
+    display: flex;
+    justify-content: center;
+    background-color: #FAF9F6;
+    transform: rotateY(180deg);
+}
+
+/*for the work page*/
+
+.project_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project_container.flip_card {
+    width: 30%;
+    height: 30%;
+    margin: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr repeat(5,5fr);
+    align-items: center;
+    row-gap: 10px;
+   /* place-items: center; short hand to center vertically and horizontally*/
+}
+
+    .container p {
+        font-family: 'Gill Sans';
+        grid-column: 2 / 3;
+        background-color: rgba(16, 32, 25, 0.7);
+        color: #FAF9F6;
+        justify-self: stretch;
+        align-self: stretch;
+        padding: 2em;
+        font-size: 15pt;
+    }
+
+
+    .container div {
+        background-color: rgba(16, 32, 25, 0.7);
+        justify-self: stretch;
+        align-self: center;
+        grid-column: 1/-1;
+        overflow: hidden;
+    }
+
+div.filter_div.arch.ug1p1{
+    grid-row: 2 / span 1;
+}
+
+p.ug1p1{
+    grid-row: 2 / span 1;
+    
+
+}
+ 
+div.filter_div.art{
+    grid-row: 3 / span 1;
+}
+
+p.art{
+    grid-row: 3 / span 1;
+    
+}
+
+div.filter_div.arch.ug1p2{
+    grid-row: 4 / span 1;
+}
+
+p.ug1p2{
+    grid-row: 4 / span 1;
+    
+}
+
+div.filter_div.arch.c211{
+    grid-row: 5 / span 1;
+}
+
+p.c211{
+    grid-row: 5 / span 1;
+    
+}
+
+div.filter_div.arch.c218{
+    grid-row: 6 / span 1;
+}
+
+p.c218{
+    grid-row: 6 / span 1;
+    
+}
+
+
+/*work content pages */
+
+
+
+        /*footer*/
+ footer {
+     display: flex;
+    justify-content: center;
+    padding: 10px;
+   left: 0px;
+   right: 0px;
+   bottom: 0px;
+    /*background-color: #9cb8ab;*/
+    background-color: #FAF9F6;
+   /* box-shadow: 0px 0px 16px 0px rgba(0,0,0,2); */
+}
+
+footer img{
+    width:30px;
+    height: auto;
+    margin: 10px;
+}
+
+p.project_info{
+    padding: 2em;
+    text-align: center;
+
+}
+
+
+
+/* tablet view */
+@media screen and (min-width: 750px){
+
+    .body_text{
+        width: 70%;
+        text-align: left;
+    }
+
+    /* home page */
+    /* sets 2 columns for main page */
+    .container-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* fixes the overarching ruleset */
+    #intro_bio {
+        width: auto;
+    }
+
+
+
+    /*cover parallax image*/
+    header.home-page {
+        /*F2F2EA*/
+        /*so that the header goes behind the image in the scrolling effect*/
+        z-index: 0;
+        background: url(../images/home_background.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Parallax effect */
+        background-position: center; /* Parallax effect */
+        background-color: #FAF9F6;
+
+        background-size: cover; /* Parallax effect */
+        height: 98vh; /* Parallax effect */
+    }
+
+
+
+    /* about page */
+    img#headshot{
+
+        width: 50%;
+        height: auto;
+        padding-left: 3em;
+        padding-top: 3em;
+    }
+
+    #resumepdf {
+        margin-right: 50px;
+        margin-left: 50px;
+        height: 1000px;
+        width: 90%;
+    }
+
+
+    /*for the work page */
+      .container{
+          grid-template-rows: 1fr repeat(5,4fr);
+      }
+        .container p {
+            padding: 2em;
+            font-size: 20pt;
+        }
+
+
+        .container div {
+            background-color: rgba(16, 32, 25, 0.7);
+            justify-self: stretch;
+            align-self: center;
+            grid-column: 1/ 2;
+            overflow: hidden;
+        }
+
+    /*for linked work pages*/
+    p.project_info{
+       
+        text-align:right;
+        padding-left: 300px;
+        padding-right: 75px;
+    }
+
+    h1 {
+        margin-top: 1em;
+        font-family: Gill Sans, sans-serif;
+        font-size: 70pt;
+        font-weight: 700;
+        text-align: right;
+        padding-right: 75px;
+    }
+
+    h2 {
+        text-align: right;
+        padding-right: 75px;
+    }
+
+
+    /*for artwork page*/
+    /*include flip card*/
+    /*use flex here*/
+} 
+   
