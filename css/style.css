@@ -274,7 +274,9 @@ form{
     flex-direction: row;
     flex-wrap: wrap;
     padding: 10px;
+    justify-content: space-around;
 }
+
 input[type=text], input[type=email]  {
     font-family: 'Garamond';
     width: 90%;
@@ -562,6 +564,10 @@ footer img{
 
 
     /*for artwork page*/
+
+    .artwork-container {
+        padding: 20px;
+    }
     /*include flip card*/
     /*use flex here*/
 }
@@ -703,6 +709,12 @@ footer img{
         grid-column: 2 / 3;
     }
 
+
+    /*artwork*/
+
+    .artwork-container {
+        padding: 40px;
+    }
 }
 
 @media (prefers-reduced-motion) {
