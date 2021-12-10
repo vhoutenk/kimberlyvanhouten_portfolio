@@ -17,15 +17,6 @@
 </head>
 
 <body>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-12X7F8632Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-12X7F8632Z');
-</script>
     <div class="skip"><a href="#main">Skip to Main Content</a></div>
     <!-- header is repeated content -->
     <!--/.Navbar-->
@@ -54,8 +45,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about.html"> About </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="architecture.html"> Architecture </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                           aria-expanded="false">Architecture </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="architecture.html">All Work</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="work_ug1p1.html">Case Study</a>
+                            <a class="dropdown-item" href="work_ug1p2.html">Looking Inward</a>
+                            <a class="dropdown-item" href="work_busstop.html">Bus Stop</a>
+                            <a class="dropdown-item" href="work_211.html">Setting the Scene</a>
+                            <a class="dropdown-item" href="work_218p1.html">Translations</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="artwork.html"> Artwork </a>
@@ -81,61 +82,84 @@
         </p>
         <!-- flexbox of pictures -->
         <div class=artwork-container>
-            <div class="flip_card">
-                <div class="flipcard_inner">
-                    <div class="flipcard_front">
-                        <img src="images_work/artimg1.png" alt="portrait" id="artimg1">
-                    </div>
-                    <div class="flipcard_back">
-                        <h2> Feeling Blue</h2>
-                    </div>
-                </div>
+            <div class="my_pictures">
+                <img src="images_work/artimg1.png" alt="portrait" id="artimg1">
             </div>
 
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg2.png" alt="dancers" id="artimg2">
             </div>
 
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg3.png" alt="exploded camera" id="artimg3">
             </div>
 
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg4.jpeg" alt="body sculpture" id="artimg4">
             </div>
 
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg5.jpeg" alt="paper birds" id="artimg5">
             </div>
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg6.jpeg" alt="living room" id="artimg6">
             </div>
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg7.jpg" alt="violinist" id="artimg7">
             </div>
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg8.jpeg" alt="london phone booth" id="artimg8">
             </div>
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/artimg9.jpg" alt="heart and brain on a circuit" id="artimg9">
             </div>
-            <div class="flip_card">
+            <div class="my_pictures">
                 <img src="images_work/umma.PNG" alt="man walking past building" id="artimg10">
             </div>
         </div>
-     <p class="body_text">
-    To contact me about any commissions, fill out the form below
-    </p>
-     <br />
-     <form>
-     <label for="fname">Name:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-      <label for="email">Email:</label><br>
-      <input type="text" id="email" name="email"><br>
-      <label for="note">What can I make for you:</label><br>
-      <input type="text" id="note" name="note"><br>
-      </form>
-</main>
+
+
+        <p class="body_text">
+            To contact me about any commissions, fill out the form below
+        </p>
+        <br />
+        <!-- <form action="https://formspree.io/f/xzbobedn"
+             method="POST" id="buy_form">
+           <label for="fname">Name:</label><br>
+           <input type="text" id="name" name="name"><br>
+
+           <label for="email">Email:</label><br>
+           <input type="email" id="email" name="email"><br>
+
+           <label for="note">What can I make for you:</label><br>
+           <input type="text" id="note" name="note"><br>
+
+           <button type="submit">Submit</button>
+       </form> -->
+
+        <form action="https://formspree.io/f/xzbobedn"
+              method="POST">
+            <label class="form_input">
+                Your name:
+            </label> <br />
+            <input type="text" name="name"><br />
+            
+            <label class="form_input">
+                Your email:
+            </label> <br />
+                <input type="email" name="_replyto"> <br />
+          
+             <label class="form_input">
+                    What can I make for you:
+             </label> <br />
+                <input type="text" name="message"> <br />
+
+            <button type="submit">Send</button>
+        </form>
+    </main>
+
+
+
 
     <footer>
         <!-- social media icon links -->
@@ -152,8 +176,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous">
-
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
 
 
 </body>

@@ -10,12 +10,49 @@ body div{
 
 h1 {
     margin-top: 2em; /*edit for tablet*/
-    font-family: Gill Sans, sans-serif;
+    font-family: System, sans-serif;
     font-size: 12vw;
     color: #3d5349;
     font-weight: 400;
     text-align: center;
+
+    animation-name: header_one_mobile;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+
 }
+
+
+@keyframes header_one_mobile {
+    from {
+        margin-top: -1em;
+    }
+
+    to {
+        margin-top: 2em;
+    }
+}
+
+@keyframes header_one_tablet {
+    from {
+        margin-top: -1em;
+    }
+
+    to {
+        margin-top: 1.5em;
+    }
+}
+
+@keyframes header_one_laptop {
+    from {
+        margin-top: -1em;
+    }
+
+    to {
+        margin-top: 2em;
+    }
+}
+
 
 h2{
     font-family:'Gill Sans', sans-serif;
@@ -64,16 +101,14 @@ a:hover{
 
 header.home-page {
     /*F2F2EA*/
-    /*so that the header goes behind the image in the scrolling effect*/
-    z-index: 0;
-    background: url(../images/home_background_phone.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Parallax effect */
-    background-position: center; /* Parallax effect */
-    background-color: #FAF9F6;
+    /*parallex only occurs on the tablet and computer view*/
 
-    background-size: cover; /* Parallax effect */
-    height: 98vh; /* Parallax effect */
+    background: url(../images/home_background_phone.jpg);
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FAF9F6;
+    background-size: cover; 
 }
 
 
@@ -100,21 +135,45 @@ a.nav-link.active {
 }
 
 .navbar {
+    display: flex;
     /*color: #3d5349; #829e92 #FAF9F6*/
     background-color: #FAF9F6;
 }
 
+.dropdown-menu.show {
+    background-color: #FAF9F6;
+    border: none;
+    border-radius: 0;
+}
+a.dropdown-item:hover {
+    background: #FAF9F6;
+}
+
+a.dropdown-item:hover {
+    color: rgba(0,0,0,.55);
+}
+
+a .dropdown-item.active {
+   color: rgba(0,0,0,.55);
+   background: #829e92;
+    text-decoration: underline;
+}
+
 
 /*text sections*/
-.body_text {
-    padding: 3em; /*edit for tablet set as 4em*/
+.body_text{
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 1em;
     line-height: 2em;
     font-size: 14pt;
 }
 
 /*just for the home page*/
-#intro_bio {
-    background: rgba(61,83,73,.5);
+#intro_bio, #software_skills {
+    background: #829e92;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 #project_list {
@@ -136,48 +195,71 @@ a.nav-link.active {
 }
 
 
+/* sets grid for main page */
+.container-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* sets flipcard*/
+.flip_card { /*these items also refer to flex*/
+    background-color: transparent;
+
+}
+
+.flip_card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+a#flip_card_inner:hover {
+    text-decoration: none;
+    text-transform: none; /*overides other link action*/
+}
+
+.flip_card:hover .flip_card_inner,
+.flip_card:focus-within .flip_card_inner,
+.flip_card:active .flip_card_inner,
+.flip_card:focus .flip_card_inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip_card_front, .flip_card_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.flip_card_front {
+    background-color: #829e92;
+    font-size: 14pt;
+    line-height: 2em;
+}
+
+
+
+.flip_card_back {
+    display: flex;
+    justify-content: center;
+    background-color: #FAF9F6;
+    transform: rotateY(180deg);
+}
+
 /*for the about page*/
 #resumepdf{
+    margin-top: 2em;
    width:100%;
    height: 700px;
 }
  
-/*Animate the about-header id with keyframes.*/
-
-@keyframes about-header {
-    from {
-       margin-top: -1em;
-        
-    }
-
-    to {
-        margin-top: 1em;
-        
-    }
-}
-#about-header {
-    animation-name: about-header;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-}
-
-/*Animate the headshot id with keyframes.*/
-
-@keyframes headshot {
-    from {
-        padding-right: 100%;
-    }
-
-    to {
-        padding-left: 3em;
-    }
-}
-
-#headshot {
-    animation-name: headshot;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
-}
 
 
 /*for the artwork page*/
@@ -187,7 +269,13 @@ form{
     padding-bottom: 200px;
 }
 
-input[type=text] {
+.artwork-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+input[type=text], input[type=email]  {
     font-family: 'Garamond';
     width: 90%;
     padding: 12px 20px;
@@ -196,67 +284,32 @@ input[type=text] {
     border: none;
     background-color: #3d5349;
     color: #FAF9F6;
-  }
+} 
 
-.artwork-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.my_pictures > img {
+    box-shadow: 7px 7px 2px #3d5349;
 }
 
-div.flip_card{
-    width: 40%;
-    height: 40%;
-    margin: 10px;
-}
-
-.flip_card {
-    background-color: transparent;
+.my_pictures { /*these items also refer to flex*/
+    background-color: transparent; 
     width: 300px;
-    height: 200px;
+    height: auto;
+
 }
 
-.flipcard_inner{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-.flip_card:hover .flipcard_inner {
-    transform: rotateY(180deg);
-}
-.flip_card:focus .flipcard_inner {
-    transform: rotateY(180deg);
-}
 
-/* Position the front and back side */
-.flipcard_front, .flipcard_back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-}
 
-.flipcard_front {
-   background-color: #FAF9F6;
-}
 
-.flipcard_back {
-    display: flex;
-    justify-content: center;
-    background-color: #FAF9F6;
-    transform: rotateY(180deg);
-}
-
-/*for the work page*/
-
+/*for the linked work page*/
 .project_container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.project_container > img{
+  margin-top: 10px;  
 }
 
 .project_container.flip_card {
@@ -265,6 +318,13 @@ div.flip_card{
     margin: 10px;
 }
 
+p.project_info {
+    padding: 2em;
+    text-align: center;
+}
+
+
+/*for the architecture page*/
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -341,7 +401,6 @@ p.c218{
 }
 
 
-/*work content pages */
 
 
 
@@ -364,47 +423,83 @@ footer img{
     margin: 10px;
 }
 
-p.project_info{
-    padding: 2em;
-    text-align: center;
 
-}
 
 
 
 /* tablet view */
-@media screen and (min-width: 750px){
+@media screen and (min-width: 750px) {
 
-    .body_text{
+
+    .body_text {
         width: 70%;
         text-align: left;
     }
 
-    /* home page */
-    /* sets 2 columns for main page */
-    .container-main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    /*for the nav bar*/
+    .navbar {
+        flex-direction: column;
     }
 
-    /* fixes the overarching ruleset */
+    h1 { /*changed for the linked pages overriden for homepage*/
+        margin-top: 1.5em;
+        font-size: 70pt;
+        font-weight: 700;
+        text-align: right;
+        padding-right: 75px;
+
+    animation-name: header_one_tablet;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    }
+
+    h2 { /*changed for the linked pages overriden for homepage*/
+        text-align: right;
+        padding-right: 75px;
+    }
+
+    /* home page */
+    /* sets columns and rows for main page */
+    .container-main {   
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 1fr; 
+    }
+
+    /* fixes the overarching ruleset stated in body_text*/
     #intro_bio {
         width: auto;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+
+    #project_list{
+        width: auto;
+        grid-row: 1 / 3;
+        grid-column: 2 /3;
+    }
+
+    #software_skills{
+        width: auto;
+        grid-row: 2 / 3;
+        grid-column: 1 /3;
+    }
+
+    /* fixes the overarching ruleset stated in h2*/
+    .homepage_h2 {
+        text-align: center;
     }
 
 
-
-    /*cover parallax image*/
+    /*cover parallax image - code repeated because picture is swapped*/
     header.home-page {
         /*F2F2EA*/
         /*so that the header goes behind the image in the scrolling effect*/
-        z-index: 0;
         background: url(../images/home_background.jpg);
-        background-repeat: no-repeat;
+        z-index: 0;
         background-attachment: fixed; /* Parallax effect */
+         background-repeat: no-repeat;
         background-position: center; /* Parallax effect */
         background-color: #FAF9F6;
-
         background-size: cover; /* Parallax effect */
         height: 98vh; /* Parallax effect */
     }
@@ -439,14 +534,23 @@ p.project_info{
 
 
         .container div {
-            background-color: rgba(16, 32, 25, 0.7);
+            /*  background-color: rgba(16, 32, 25, 0.7);
             justify-self: stretch;
-            align-self: center;
+            align-self: center; 
+              overflow: hidden;
+          */
             grid-column: 1/ 2;
-            overflow: hidden;
         }
 
     /*for linked work pages*/
+
+    /*for the linked work page*/
+    .project_container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
     p.project_info{
        
         text-align:right;
@@ -454,23 +558,153 @@ p.project_info{
         padding-right: 75px;
     }
 
-    h1 {
-        margin-top: 1em;
-        font-family: Gill Sans, sans-serif;
-        font-size: 70pt;
-        font-weight: 700;
-        text-align: right;
-        padding-right: 75px;
-    }
 
-    h2 {
-        text-align: right;
-        padding-right: 75px;
-    }
 
 
     /*for artwork page*/
     /*include flip card*/
     /*use flex here*/
-} 
-   
+}
+
+@media screen and (min-width: 950px) {
+    h1 { /*changed for the linked pages overriden for homepage*/
+        margin-top: 2em;
+        font-size: 50pt;
+        font-weight: 600;
+        text-align: center;
+
+        animation-name: header_one_laptop;
+        animation-duration: 5s;
+        animation-iteration-count: 1;
+    }
+
+    h2 { /*changed for the linked pages overriden for homepage*/
+        text-align: center;
+        padding-right: 75px;
+    }
+
+    /*for the nav bar*/
+    .navbar {
+        flex-direction: row;
+    }
+
+    /* home page */
+
+    #home_header {
+        font-size: 120pt;
+    }
+
+
+    /* sets 2 columns for main page */
+    .container-main {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    /* fixes the overarching ruleset stated in body_text*/
+    #intro_bio {
+        margin: 0;
+        padding-left: 25px;
+        padding-right: 25px;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+
+    #project_list {
+        
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+    }
+
+    #software_skills {
+       
+        grid-row: 1/ 2;
+        grid-column: 3 / 4;
+    }
+
+    
+    /*linked pages*/
+
+    p.project_info{
+        text-align: center;
+        padding: 30pt;
+    }
+
+    .body_text {
+        text-align: center;
+        padding-left: 100pt;
+        padding-right: 100pt;
+        margin: 20pt;
+        width: 98%;
+    }
+
+    /*about*/
+    img#headshot {
+        display: block;
+        width: 25%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container{
+       grid-template-columns: 1fr 1fr 1fr 1fr;
+       grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    div.filter_div.arch.ug1p1 {
+        grid-row: 2 / span 1;
+        grid-column: 1 / 2;
+    }
+
+    p.ug1p1 {
+        grid-row: 2 / span 1;
+        grid-column: 2 / 3;
+    }
+
+    div.filter_div.art {
+        grid-row: 2 / span 1;
+        grid-column: 3 / 4;
+    }
+
+    p.art {
+        grid-row: 2 / span 1;
+        grid-column: 4 / 5;
+    }
+
+    div.filter_div.arch.ug1p2 {
+        grid-row: 3 / span 1;
+        grid-column: 1 / 2 ;
+    }
+
+    p.ug1p2 {
+        grid-row: 3 / span 1;
+        grid-column: 2 / 3;
+    }
+
+    div.filter_div.arch.c211 {
+        grid-row: 3 / span 1;
+        grid-column: 3 / 4;
+    }
+
+    p.c211 {
+        grid-row: 3 / span 1;
+        grid-column: 4 / 5;
+    }
+
+    div.filter_div.arch.c218 {
+        grid-row: 4 / span 1;
+        grid-column: 1 / 2;
+    }
+
+    p.c218 {
+        grid-row: 4 / span 1;
+        grid-column: 2 / 3;
+    }
+
+}
+
+@media (prefers-reduced-motion) {
+
+}
