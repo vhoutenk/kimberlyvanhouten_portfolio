@@ -648,50 +648,52 @@ footer img{
     }
 
     div.filter_div.arch.ug1p1 {
+        grid-row: 1 / span 1;
         
     }
 
     p.ug1p1 {
-
+    grid-row: 1 / span 1;
+       
     }
 
     div.filter_div.art {
-        grid-row: 2 / span 1;
+        grid-row: 1 / span 1;
         grid-column: 3 / 4;
     }
 
     p.art {
-        grid-row: 2 / span 1;
+        grid-row: 1 / span 1;
         grid-column: 4 / 5;
     }
 
     div.filter_div.arch.ug1p2 {
-        grid-row: 3 / span 1;
+        grid-row: 2 / span 1;
         grid-column: 1 / 2 ;
     }
 
     p.ug1p2 {
-        grid-row: 3 / span 1;
+        grid-row: 2 / span 1;
         grid-column: 2 / 3;
     }
 
     div.filter_div.arch.c211 {
-        grid-row: 3 / span 1;
+        grid-row: 2 / span 1;
         grid-column: 3 / 4;
     }
 
     p.c211 {
-        grid-row: 3 / span 1;
+        grid-row: 2 / span 1;
         grid-column: 4 / 5;
     }
 
     div.filter_div.arch.c218 {
-        grid-row: 4 / span 1;
+        grid-row: 3 / span 1;
         grid-column: 1 / 2;
     }
 
     p.c218 {
-        grid-row: 4 / span 1;
+        grid-row: 3 / span 1;
         grid-column: 2 / 3;
     }
 
