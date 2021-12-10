@@ -101,14 +101,14 @@ a:hover{
 
 header.home-page {
     /*F2F2EA*/
-    /*parallex only occurs on the tablet and computer view*/
-
-    background: url(../images/home_background_phone.jpg);
+    background: url(../images/home_background.jpg);
     z-index: 0;
+    background-attachment: fixed; /* Parallax effect */
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; /* Parallax effect */
     background-color: #FAF9F6;
-    background-size: cover; 
+    background-size: cover; /* Parallax effect */
+    height: 98vh; /* Parallax effect */
 }
 
 
@@ -222,6 +222,10 @@ a#flip_card_inner:hover {
     text-transform: none; /*overides other link action*/
 }
 
+a#flip_card_inner{
+    text-decoration: none;
+}
+
 .flip_card:hover .flip_card_inner,
 .flip_card:focus-within .flip_card_inner,
 .flip_card:active .flip_card_inner,
@@ -243,8 +247,6 @@ a#flip_card_inner:hover {
     font-size: 14pt;
     line-height: 2em;
 }
-
-
 
 .flip_card_back {
     display: flex;
@@ -274,7 +276,8 @@ form{
     flex-direction: row;
     flex-wrap: wrap;
     padding: 10px;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: baseline;
 }
 
 input[type=text], input[type=email]  {
@@ -430,7 +433,7 @@ footer img{
 
 
 /* tablet view */
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
 
 
     .body_text {
@@ -492,19 +495,7 @@ footer img{
     }
 
 
-    /*cover parallax image - code repeated because picture is swapped*/
-    header.home-page {
-        /*F2F2EA*/
-        /*so that the header goes behind the image in the scrolling effect*/
-        background: url(../images/home_background.jpg);
-        z-index: 0;
-        background-attachment: fixed; /* Parallax effect */
-         background-repeat: no-repeat;
-        background-position: center; /* Parallax effect */
-        background-color: #FAF9F6;
-        background-size: cover; /* Parallax effect */
-        height: 98vh; /* Parallax effect */
-    }
+
 
 
 
@@ -572,7 +563,7 @@ footer img{
     /*use flex here*/
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1280px) {
     h1 { /*changed for the linked pages overriden for homepage*/
         margin-top: 2em;
         font-size: 50pt;
@@ -612,14 +603,11 @@ footer img{
         margin: 0;
         padding-left: 25px;
         padding-right: 25px;
-        grid-row: 1 / 2;
-        grid-column: 1 / 2;
     }
 
     #project_list {
         
         grid-row: 1 / 2;
-        grid-column: 2 / 3;
     }
 
     #software_skills {
@@ -649,7 +637,6 @@ footer img{
         display: block;
         width: 25%;
         height: auto;
-        display: block;
         margin-left: auto;
         margin-right: auto;
     }
@@ -660,13 +647,11 @@ footer img{
     }
 
     div.filter_div.arch.ug1p1 {
-        grid-row: 2 / span 1;
-        grid-column: 1 / 2;
+        
     }
 
     p.ug1p1 {
-        grid-row: 2 / span 1;
-        grid-column: 2 / 3;
+
     }
 
     div.filter_div.art {
@@ -711,12 +696,56 @@ footer img{
 
 
     /*artwork*/
+    @keyframes rotate {
+        50% {
+            transform: rotate(360deg);
+        }
+    }
 
+    div.my_pictures:hover{
+        animation-name: rotate;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 2s;
+    }
     .artwork-container {
         padding: 40px;
     }
 }
 
 @media (prefers-reduced-motion) {
+    header.home-page {
+        background-attachment: initial;
+    }
 
+    div.my_pictures:hover {
+        animation: none;
+    }
+
+    h1 {
+        animation: none;
+    }
+
+    .flip_card:hover .flip_card_inner,
+    .flip_card:focus-within .flip_card_inner,
+    .flip_card:active .flip_card_inner,
+    .flip_card:focus .flip_card_inner{
+        transform:none;
+    }
+
+    /* Position the front and back side */
+    .flip_card_front, .flip_card_back {
+        position:relative;
+        -webkit-backface-visibility: visible; /* Safari */
+        backface-visibility: visible;
+    }
+    .flip_card_front{
+            height: 80%;
+    }
+
+     .flip_card_back {
+            height: 20%;
+            margin: 0;
+            transform: none;
+     }
 }
