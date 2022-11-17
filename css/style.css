@@ -16,9 +16,6 @@ h1 {
     font-weight: 400;
     text-align: center;
 
-    animation-name: header_one_mobile;
-    animation-duration: 5s;
-    animation-iteration-count: 1;
 
 }
 
@@ -79,7 +76,6 @@ a:visited{
 a:hover{
     text-decoration:none;
     text-transform: uppercase;
-    color: black;
 }
 
 
@@ -163,9 +159,9 @@ a .dropdown-item.active {
 
 /*text sections*/
 .body_text{
-    padding-left: 3em;
-    padding-right: 3em;
-    padding-top: 1em;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 25px;
     line-height: 2em;
     font-size: 14pt;
 }
@@ -259,10 +255,40 @@ a#flip_card_inner{
 /*for the about page*/
 #resumepdf{
     margin-top: 2em;
-   width:100%;
-   height: 700px;
+   width:95%;
+   height: 100vh;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.about_container{
+    display:grid;
+    grid-template-columns: 1fr;
 }
  
+
+/*for the portfolio page*/
+
+    /*not used since portfolio is not a pdf*/
+#portfoliopdf {
+    margin-top: 2em;
+    width: 100%;
+    height: 100vh;
+}
+
+.portfolio_container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+   
+}
+
+.portfolio_container > img {
+    width: 75vw;
+    margin: 10px;
+    align-self: center;
+}
 
 
 /*for the artwork page*/
@@ -438,7 +464,7 @@ footer img{
 
 
     .body_text {
-        width: 70%;
+       /* width: 70%; */
         text-align: left;
     }
 
@@ -454,9 +480,6 @@ footer img{
         text-align: right;
         padding-right: 75px;
 
-    animation-name: header_one_tablet;
-    animation-duration: 5s;
-    animation-iteration-count: 1;
     }
 
     h2 { /*changed for the linked pages overriden for homepage*/
@@ -496,17 +519,25 @@ footer img{
     }
 
 
-
-
-
-
     /* about page */
-    img#headshot{
-
-        width: 50%;
+    .about_container{
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 150px 3fr;
+    }
+    img#headshot {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        padding-top: 40px;
+        /*width: 50%;
         height: auto;
-        padding-left: 3em;
-        padding-top: 3em;
+        padding-left: 3em;*/
+    }
+    .about_textdiv{
+        grid-column: 2 /3;
+        grid-row: 2 / -1;
+        width: 100%;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     #resumepdf {
@@ -571,14 +602,19 @@ footer img{
         font-weight: 600;
         text-align: center;
 
-        animation-name: header_one_laptop;
-        animation-duration: 5s;
-        animation-iteration-count: 1;
     }
 
     h2 { /*changed for the linked pages overriden for homepage*/
         text-align: center;
         padding-right: 75px;
+    }
+
+    .body_text {
+        text-align: center;
+        padding-left: 100pt;
+        padding-right: 100pt;
+        width: 98%;
+
     }
 
     /*for the nav bar*/
@@ -625,75 +661,66 @@ footer img{
         padding: 30pt;
     }
 
-    .body_text {
-        text-align: center;
-        padding-left: 100pt;
-        padding-right: 100pt;
-        margin: 20pt;
-        width: 98%;
-    }
 
     /*about*/
+    .about_container{
+        grid-template-rows: 50px 3fr;
+    }
     img#headshot {
-        display: block;
-        width: 25%;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
+      padding-left: 100px;
+      padding-right: 25px;
     }
 
+    .about_text{
+        text-align: left;
+    }
+
+
+   
+
+    /*work pages*/
     .container{
        grid-template-columns: 1fr 1fr 1fr 1fr;
        grid-template-rows: 1fr 1fr 1fr 1fr;
     }
 
-    div.filter_div.arch.ug1p1 {
-        grid-row: 1 / span 1;
-        
-    }
-
-    p.ug1p1 {
-    grid-row: 1 / span 1;
-       
-    }
-
     div.filter_div.art {
-        grid-row: 1 / span 1;
+        grid-row: 2 / span 1;
         grid-column: 3 / 4;
     }
 
     p.art {
-        grid-row: 1 / span 1;
+        grid-row: 2 / span 1;
         grid-column: 4 / 5;
     }
 
     div.filter_div.arch.ug1p2 {
-        grid-row: 2 / span 1;
+        grid-row: 3 / span 1;
         grid-column: 1 / 2 ;
     }
 
     p.ug1p2 {
-        grid-row: 2 / span 1;
+        grid-row: 3 / span 1;
         grid-column: 2 / 3;
     }
 
     div.filter_div.arch.c211 {
-        grid-row: 2 / span 1;
+        grid-row: 3 / span 1;
         grid-column: 3 / 4;
     }
 
     p.c211 {
-        grid-row: 2 / span 1;
+        grid-row: 3 / span 1;
         grid-column: 4 / 5;
     }
 
     div.filter_div.arch.c218 {
-        grid-row: 3 / span 1;
+        grid-row: 4 / span 1;
         grid-column: 1 / 2;
     }
 
     p.c218 {
-        grid-row: 3 / span 1;
+        grid-row: 4 / span 1;
         grid-column: 2 / 3;
     }
 
